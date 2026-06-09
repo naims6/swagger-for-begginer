@@ -1,2 +1,6 @@
 allowBuilds:
+  '@scarf/scarf': true
+  core-js: true
   esbuild: set this to true or false
+  nodemon: true
+  protobufjs: true
