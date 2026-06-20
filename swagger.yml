@@ -1,0 +1,68 @@
+openapi: 3.0.3
+info:
+  title: Amader API
+  description: amader prothom swagger documentation
+  version: 1.0.0
+servers:
+  - url: http://localhost:5000/api/v1
+    description: local server
+  - url: http:productoin.com
+tags:
+  - name: Student Authentication
+  - name: Order
+  - name: Payment
+paths:
+  /register:
+    post:
+      summary: amader register api
+      tags:
+        - Student Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  required: true
+                email:
+                  type: string
+                  required: true
+                password:
+                  type: string
+      responses:
+        '201':
+          description: Student register successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  data:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                        example: Naim
+                      email:
+                        type: string
+                        example: naim@gmail.com
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  meassage:
+                    type: string
+              example:
+                success: false
+                meassage: Internal Server Error.
+components: {}
